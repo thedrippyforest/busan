@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 釜山家庭旅行手冊｜Drippy Forest</title>
+<style>
+:root{
+  --cream:#FFF8EA; --paper:#FFFCF4; --leaf:#7E9B72; --leaf-dark:#486541;
+  --sky:#BFD8D5; --sea:#7DA8A6; --sand:#E8D5B7; --sun:#F4C76B; --coral:#D8896F;
+  --ink:#394037; --muted:#6F766E; --line:#E7DDC9; --white:#fff;
+  --shadow:0 12px 32px rgba(70,80,60,.12); --radius:22px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:radial-gradient(circle at top left,rgba(191,216,213,.38),transparent 38%),
+             radial-gradient(circle at 90% 10%,rgba(244,199,107,.24),transparent 28%),var(--cream);
+  color:var(--ink); line-height:1.65;
+}
+a{color:var(--leaf-dark); text-decoration:none; border-bottom:1px dotted rgba(72,101,65,.45)}
+.wrap{max-width:1180px; margin:0 auto; padding:28px 18px 80px}
+.hero{position:relative; padding:34px 30px; border-radius:32px; background:linear-gradient(135deg,rgba(255,252,244,.96),rgba(230,243,238,.9)); box-shadow:var(--shadow); overflow:hidden; border:1px solid rgba(231,221,201,.75)}
+.hero:after{content:""; position:absolute; right:-50px; bottom:-75px; width:240px; height:240px; border-radius:50%; background:rgba(126,155,114,.13)}
+.badge{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; background:rgba(126,155,114,.12); color:var(--leaf-dark); border-radius:999px; font-weight:800; font-size:14px}
+h1{margin:18px 0 10px; font-size:clamp(30px,5vw,56px); line-height:1.12; letter-spacing:.03em; color:var(--leaf-dark)}
+.subtitle{font-size:18px; color:var(--muted); max-width:820px}
+.hero-grid{margin-top:24px; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; position:relative; z-index:1}
+.mini-card{background:rgba(255,255,255,.78); border:1px solid var(--line); padding:14px 15px; border-radius:18px}
+.mini-card b{display:block; font-size:14px; color:var(--leaf-dark); margin-bottom:4px}
+nav{position:sticky; top:0; z-index:10; margin:18px 0; background:rgba(255,248,234,.86); backdrop-filter:blur(12px); border:1px solid rgba(231,221,201,.7); border-radius:999px; padding:8px; box-shadow:0 8px 20px rgba(70,80,60,.08); display:flex; gap:7px; overflow-x:auto}
+nav a,.btn{border:0; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; border-radius:999px; padding:10px 14px; background:#fff; color:var(--leaf-dark); font-weight:800; font-size:14px; cursor:pointer; box-shadow:0 3px 10px rgba(70,80,60,.06)}
+nav a{border-bottom:0} .btn.primary{background:var(--leaf); color:#fff} .btn.ghost{background:rgba(255,255,255,.68)}
+section{margin-top:24px; padding:24px; background:rgba(255,252,244,.9); border:1px solid rgba(231,221,201,.85); border-radius:var(--radius); box-shadow:var(--shadow)}
+.section-title{display:flex; justify-content:space-between; gap:14px; align-items:flex-start; margin-bottom:18px}
+h2{margin:0; color:var(--leaf-dark); font-size:28px} h3{margin:22px 0 10px; color:var(--leaf-dark); font-size:21px}
+.note{background:rgba(244,199,107,.16); border-left:5px solid var(--sun); padding:13px 15px; border-radius:14px; color:#625337}
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px} .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:16px; border:1px solid var(--line); background:#fff}
+th,td{padding:12px 13px; border-bottom:1px solid var(--line); vertical-align:top} th{background:rgba(126,155,114,.12); color:var(--leaf-dark); text-align:left} tr:last-child td{border-bottom:0}
+.day-card{margin:16px 0; background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden}
+.day-head{padding:17px 18px; background:linear-gradient(90deg,rgba(126,155,114,.16),rgba(191,216,213,.22)); display:flex; justify-content:space-between; align-items:center; gap:10px; cursor:pointer}
+.day-head h3{margin:0; font-size:21px} .day-body{padding:18px}
+.day-tools{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0}
+.timeline{display:flex; flex-direction:column; gap:12px}
+.item{display:grid; grid-template-columns:96px 1fr auto; gap:12px; align-items:start; padding:14px; border:1px solid var(--line); border-radius:16px; background:var(--paper)}
+.time{font-weight:900; color:var(--coral); font-size:15px} .item-title{font-weight:900; color:var(--leaf-dark); margin-bottom:4px; font-size:17px}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px} .tag{font-size:12px; padding:3px 8px; border-radius:999px; background:rgba(125,168,166,.13); color:#416B68; font-weight:800}
+.item-actions{display:flex; flex-direction:column; gap:6px}
+.tiny-btn{border:1px solid var(--line); background:#fff; border-radius:10px; padding:6px 8px; cursor:pointer; color:var(--leaf-dark); font-weight:800}
+.done{opacity:.45} .done .item-title{text-decoration:line-through}
+.add-panel{display:none; margin:14px 0; padding:14px; border:1px dashed var(--leaf); border-radius:16px; background:#fff}
+.add-panel input,.add-panel textarea,.add-row input{width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--line); font-size:15px; background:#fff; margin-bottom:8px}
+.add-panel textarea{min-height:70px; resize:vertical}
+.weather-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:10px}
+.weather-day{background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px; min-height:126px}
+.weather-day b{color:var(--leaf-dark)} .weather-temp{font-size:22px; font-weight:900; color:var(--coral)}
+.checklist{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.check{display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:10px 12px}
+input[type="checkbox"]{width:20px; height:20px; accent-color:var(--leaf)}
+.add-row{display:flex; gap:8px; margin:12px 0} .add-row input{margin-bottom:0}
+.food-card,.info-card{background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px} .food-card h3,.info-card h3{margin-top:0}
+.food-list{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+.meal-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px}
+.meal-box{background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px} .meal-box b{color:var(--leaf-dark)}
+.map-list{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.map-link{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:14px; border-bottom:1px solid var(--line); font-weight:800}
+.phrase{font-size:15px} .roman{color:var(--muted); font-size:13px} .kr{font-weight:900; color:var(--leaf-dark)}
+body.big{font-size:20px} body.big .wrap{max-width:1050px} body.big nav{display:none} body.big .item{grid-template-columns:110px 1fr} body.big .item-actions{display:none} body.big h2{font-size:34px}
+.footer{text-align:center; color:var(--muted); padding:30px 0 0}
+@media(max-width:900px){.hero-grid,.grid-2,.grid-3,.checklist,.map-list,.food-list,.meal-grid,.weather-grid{grid-template-columns:1fr} .item{grid-template-columns:1fr} .item-actions{flex-direction:row} .wrap{padding:16px 12px 60px} section{padding:18px}}
+@media print{
+  body{background:#fff; color:#222; font-size:12pt} .wrap{max-width:none; padding:0} nav,.btn,.tiny-btn,.add-row,.add-panel,.no-print{display:none!important}
+  .hero,section,.day-card,.item,.food-card,.info-card,.weather-day{box-shadow:none!important; break-inside:avoid} .hero{border-radius:0; padding:14px; margin-bottom:8px}
+  section{margin-top:10px; padding:12px; border-radius:12px} .day-body{display:block!important; padding:10px} .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.grid-3,.food-list,.meal-grid{grid-template-columns:1fr 1fr} .weather-grid{grid-template-columns:repeat(4,1fr)} .item{grid-template-columns:82px 1fr; padding:8px; margin-bottom:6px}
+  a{color:#222; border-bottom:0} h1{font-size:28pt} h2{font-size:18pt} h3{font-size:14pt} .tag{border:1px solid #ddd; background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="badge">🌿 Drippy Forest Family Travel Book｜v7 住宿修正版</div>
+  <h1>2026 釜山夏日家庭旅行手冊</h1>
+  <p class="subtitle">7/22（三）– 7/28（二）｜每天可新增、刪除、調整行程順序；每日天氣預報即時更新；早午晚餐與下午茶都照路線順序整理好。這次媽媽不是人形導航機，是優雅的森林總管。</p>
+  <div class="hero-grid">
+    <div class="mini-card"><b>同行人員</b><span>maomao、Ken、啾寶、桔寶、爸爸、媽媽</span></div>
+    <div class="mini-card"><b>航班</b><span>BX792 7/22 16:35–19:55<br>BX793 7/28 10:50–12:35</span></div>
+    <div class="mini-card"><b>住宿</b><span>7/22–7/25 海雲台 StayWe Airbnb<br>7/25–7/28 Hotel Foret Premier Nampo</span></div>
+    <div class="mini-card"><b>包車日</b><span>7/25 影島海女村＋白淺灘＋松島</span></div>
+  </div>
+</header>
+
+<nav class="no-print">
+  <a href="#weather">每日天氣</a><a href="#overview">總覽</a><a href="#accommodation">住宿</a><a href="#walkable">步行</a><a href="#itinerary">每日行程</a><a href="#food">美食</a><a href="#wowpass">WOWPASS</a><a href="#entry">入境資料</a><a href="#korean">韓文</a><a href="#shopping">購物</a><a href="#tax">退稅</a><a href="#emergency">緊急</a>
+  <button class="btn ghost" onclick="toggleBig()">長輩大字模式</button><button class="btn primary" onclick="window.print()">列印手冊</button>
+</nav>
+
+<section id="weather">
+  <div class="section-title">
+    <div><h2>每日天氣預報｜釜山</h2><p>此區使用 Open-Meteo 即時讀取釜山每日預報；若旅行日期超出可預報範圍，會顯示「尚未開放」，出發前會自動更新。</p></div>
+    <a class="btn ghost no-print" href="https://weather.naver.com/today/08440104" target="_blank">Naver 天氣</a>
+  </div>
+  <div id="weatherGrid" class="weather-grid"></div>
+  <p class="note">夏天原則：11:30–15:00 優先安排室內、咖啡廳、百貨或搭車移動；戶外景點短停就好。</p>
+</section>
+
+<section id="overview">
+<h2>行程總覽</h2>
+<table><thead><tr><th>日期</th><th>區域</th><th>主行程</th><th>美食主軸</th></tr></thead><tbody>
+<tr><td>7/22（三）</td><td>抵達／海雲台</td><td>抵達金海機場 → 入住海雲台</td><td>宵夜／便利商店</td></tr>
+<tr><td>7/23（四）</td><td>海雲台</td><td>住宿步行至 ClubD Oasis 水上樂園＋汗蒸幕</td><td>豬肉湯飯／血腸湯</td></tr>
+<tr><td>7/24（五）</td><td>海雲台／青沙浦</td><td>醫美＋住宿步行至水族館＋自然島鹽麵包＋膠囊列車</td><td>鮑魚粥、鹽麵包、燉排骨</td></tr>
+<tr><td>7/25（六）</td><td>包車換飯店</td><td>ARTE Museum → 海女村 → 白淺灘 → 松島 → 南浦</td><td>海女村海鮮、海景咖啡</td></tr>
+<tr><td>7/26（日）</td><td>南浦／札嘎其</td><td>新東亞市場海鮮＋樂天超市</td><td>海鮮、烤肉</td></tr>
+<tr><td>7/27（一）</td><td>南浦彈性日</td><td>國際市場／富平市場／補買／整理行李</td><td>南浦小吃、最後一餐</td></tr>
+<tr><td>7/28（二）</td><td>回台灣</td><td>退稅＋金海機場返台</td><td>機場早餐</td></tr>
+</tbody></table>
+</section>
+
+<section id="accommodation">
+  <h2>住宿資訊｜給長輩安心看的版本</h2>
+  <div class="grid-2">
+    <div class="info-card">
+      <h3>7/22–7/25 海雲台 StayWe Airbnb</h3>
+      <table>
+        <tbody>
+          <tr><th>入住</th><td>2026/07/22（三）14:00</td></tr>
+          <tr><th>退房</th><td>2026/07/25（六）11:00</td></tr>
+          <tr><th>同行者</th><td>6 位客人</td></tr>
+          <tr><th>房東</th><td>Paul From StayWe</td></tr>
+          <tr><th>聯絡電話</th><td><b>+82 10-4507-0324</b></td></tr>
+          <tr><th>確認碼</th><td><b>HMYMTZ4WNK</b></td></tr>
+          <tr><th>地址</th><td>29 Haeundaehaebyeon-ro 298beon-gil A동, Busan, Busan 48099, Korea</td></tr>
+          <tr><th>韓文地址</th><td><b>부산광역시 해운대구 해운대해변로298번길 29 A동</b></td></tr>
+          <tr><th>付款</th><td>總費用：$15,775.47 TWD</td></tr>
+          <tr><th>Naver</th><td><a target="_blank" href="https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan">開啟 Naver 地圖</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-card">
+      <h3>7/25–7/28 南浦住宿</h3>
+      <table>
+        <tbody>
+          <tr><th>英文名稱</th><td>Hotel Foret Premier Nampo</td></tr>
+          <tr><th>韓文名稱</th><td><b>호텔포레 프리미어 남포</b></td></tr>
+          <tr><th>地址</th><td>54-1, Gudeok-ro, Jung-gu, Busan, Korea</td></tr>
+          <tr><th>韓文地址</th><td><b>부산광역시 중구 구덕로 54-1</b></td></tr>
+          <tr><th>電話</th><td>請出發前從訂房平台補上</td></tr>
+          <tr><th>Naver</th><td><a target="_blank" href="https://map.naver.com/p/search/Hotel%20Foret%20Premier%20Nampo">開啟 Naver 地圖</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="itinerary">
+<div class="section-title"><div><h2>每日行程卡</h2><p>每一天都可以新增行程、刪除、打勾完成，也可以上下調整順序。資料會存在目前瀏覽器裡。</p></div><button class="btn ghost no-print" onclick="resetAll()">恢復預設行程</button></div>
+<div id="daysRoot"></div>
+</section>
+
+<section id="food">
+  <h2>每日順路美食清單</h2>
+  <p class="note">原則：不跨區追店。每天只放當日路線附近的早餐、午餐、下午茶與晚餐。熱門烤肉若可用 Catchtable，手冊中會提醒；多數湯飯、粥店、市場海鮮仍以現場為主。</p>
+  <div class="food-list" id="foodList"></div>
+</section>
+
+<section id="wowpass">
+  <h2>WOWPASS 教學使用區</h2>
+  <div class="grid-2">
+    <div class="info-card">
+      <h3>WOWPASS 是什麼？</h3>
+      <p>WOWPASS 是給外國旅客使用的韓國預付卡，可做外幣換匯、韓國店家刷卡消費，也能兼作 T-money 交通卡。付款餘額和 T-money 交通餘額要分開看。</p>
+      <p><a target="_blank" href="https://wowpass.io/zh-TW">WOWPASS 官方網站</a>｜<a target="_blank" href="https://www.orangesquare.kr/zh/wowpass-faq">官方 FAQ</a></p>
+    </div>
+    <div class="info-card">
+      <h3>你們這團建議怎麼用？</h3>
+      <ol>
+        <li>出發前先下載 WOWPASS App。</li>
+        <li>抵達金海機場後，若時間允許，到機台領卡／儲值；若孩子累，先去飯店，隔天再處理。</li>
+        <li>大人每人一張最方便；孩子可先不用。</li>
+        <li>交通用 T-money 餘額；店家刷卡用 WOWPASS 餘額。</li>
+        <li>市場海鮮、包車尾款、部分小店仍準備現金。</li>
+      </ol>
+    </div>
+    <div class="info-card">
+      <h3>金海機場機台提醒</h3>
+      <p>WOWPASS 官方社群 2026/6 更新提到，金海國際機場站 1 樓有機台位置資訊。實際位置與營業時間仍建議出發前用 WOWPASS App「Machine Location」再次確認。</p>
+      <p><a target="_blank" href="https://map.naver.com/p/search/Busan-Gimhae%20LRT%20Gimhae%20International%20Airport%20Station">金海國際機場站 Naver</a></p>
+    </div>
+    <div class="info-card">
+      <h3>使用注意</h3>
+      <ul>
+        <li>刷卡前確認店家可接受卡片付款。</li>
+        <li>搭地鐵／公車上下車記得嗶卡。</li>
+        <li>卡片遺失時，若已綁定 App，可在 App 鎖卡。</li>
+        <li>交通餘額不足時，需儲值 T-money 餘額，不是只儲值 WOWPASS 消費餘額。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section id="entry">
+  <h2>K-ETA／e-Arrival Card 入境資料小抄</h2>
+  <p class="note">
+    2026 年入境韓國前，請以官方網站最新規定為準。若台灣旅客當時仍屬 K-ETA 暫免對象，可以不用申請 K-ETA，但通常仍要完成 e-Arrival Card／入境資料申報；若自願申請 K-ETA，通常可省去入境卡申報。這區先幫你們把「可能會被問到的資料」集中整理好。
+  </p>
+
+  <div class="grid-2">
+    <div class="info-card">
+      <h3>建議出發前準備</h3>
+      <div class="check"><input type="checkbox"><span>確認 6 人護照效期與英文姓名拼音</span></div>
+      <div class="check"><input type="checkbox"><span>確認 BX792／BX793 航班資訊</span></div>
+      <div class="check"><input type="checkbox"><span>準備韓國住宿地址、飯店名稱與聯絡電話</span></div>
+      <div class="check"><input type="checkbox"><span>準備在台聯絡電話與 Email</span></div>
+      <div class="check"><input type="checkbox"><span>確認是否需要填 K-ETA 或 e-Arrival Card</span></div>
+      <div class="check"><input type="checkbox"><span>將完成畫面截圖，存在手機相簿與雲端</span></div>
+      <p>
+        <a target="_blank" href="https://www.k-eta.go.kr/">K-ETA 官方網站</a>｜ 
+        <a target="_blank" href="https://e-arrivalcard.go.kr/">e-Arrival Card 官方網站</a>
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>入境目的與行程資訊</h3>
+      <table>
+        <tbody>
+          <tr><th>入境目的</th><td>Tourism / Sightseeing<br>觀光旅遊</td></tr>
+          <tr><th>抵達日期</th><td>2026-07-22</td></tr>
+          <tr><th>離境日期</th><td>2026-07-28</td></tr>
+          <tr><th>入境航班</th><td>BX792</td></tr>
+          <tr><th>離境航班</th><td>BX793</td></tr>
+          <tr><th>韓國主要停留城市</th><td>Busan, Republic of Korea</td></tr>
+          <tr><th>同行人數</th><td>6 people</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>飯店韓文資訊｜可直接複製填寫</h3>
+  <div class="grid-2">
+    <div class="info-card">
+      <h3>7/22–7/25 海雲台住宿</h3>
+      <table>
+        <tbody>
+          <tr><th>英文名稱</th><td>StayWe Airbnb Haeundae</td></tr>
+          <tr><th>韓文名稱</th><td><b>스테이위드 해운대 에어비앤비</b></td></tr>
+          <tr><th>英文地址</th><td>A-dong, 29 Haeundaehaebyeon-ro 298beon-gil, Haeundae-gu, Busan, 48099, Republic of Korea</td></tr>
+          <tr><th>韓文地址</th><td><b>부산광역시 해운대구 해운대해변로298번길 29 A동</b></td></tr>
+          <tr><th>房東／聯絡</th><td>Paul From StayWe</td></tr>
+          <tr><th>電話</th><td>+82 10-4507-0324</td></tr>
+          <tr><th>確認碼</th><td>HMYMTZ4WNK</td></tr>
+          <tr><th>入住／退房</th><td>2026-07-22 14:00 入住｜2026-07-25 11:00 退房</td></tr>
+          <tr><th>同行者</th><td>6 位客人：MaoLing Luo, ChiaLiang Ko, AiTong Ko, YongChen Ko, YiYon Sun, ChuanChang Luo</td></tr>
+          <tr><th>付款</th><td>總費用：$15,775.47 TWD</td></tr>
+          <tr><th>Naver</th><td><a target="_blank" href="https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan">開啟 Naver 地圖</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-card">
+      <h3>7/25–7/28 南浦住宿</h3>
+      <table>
+        <tbody>
+          <tr><th>英文名稱</th><td>Hotel Foret Premier Nampo</td></tr>
+          <tr><th>韓文名稱</th><td><b>호텔포레 프리미어 남포</b></td></tr>
+          <tr><th>英文地址</th><td>54-1, Gudeok-ro, Jung-gu, Busan, Republic of Korea</td></tr>
+          <tr><th>韓文地址</th><td><b>부산광역시 중구 구덕로 54-1</b></td></tr>
+          <tr><th>電話</th><td>請出發前從訂房平台補上</td></tr>
+          <tr><th>Naver</th><td><a target="_blank" href="https://map.naver.com/p/search/Hotel%20Foret%20Premier%20Nampo">開啟 Naver 地圖</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>6 人入境資料填寫檢查表</h3>
+  <table>
+    <thead>
+      <tr><th>成員</th><th>護照英文姓名</th><th>護照號碼</th><th>生日</th><th>國籍</th><th>聯絡電話／Email</th><th>完成</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>maomao</td><td>待填</td><td>待填</td><td>1988-09-30</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+      <tr><td>Ken</td><td>待填</td><td>待填</td><td>1987-03-05</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+      <tr><td>啾寶</td><td>待填</td><td>待填</td><td>2018-09-01</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+      <tr><td>桔寶</td><td>待填</td><td>待填</td><td>2020-09-26</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+      <tr><td>爸爸</td><td>待填</td><td>待填</td><td>待填</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+      <tr><td>媽媽</td><td>待填</td><td>待填</td><td>待填</td><td>Taiwan</td><td>待填</td><td><input type="checkbox"></td></tr>
+    </tbody>
+  </table>
+
+  <h3>入境資料常見欄位對照</h3>
+  <table>
+    <thead><tr><th>欄位</th><th>建議填法</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>Purpose of Entry</td><td>Tourism / Sightseeing</td><td>觀光旅遊</td></tr>
+      <tr><td>Address in Korea</td><td>使用第一間住宿：StayWe Airbnb Haeundae</td><td>若系統要完整地址，填英文地址或韓文地址皆可</td></tr>
+      <tr><td>Contact in Korea</td><td>飯店電話</td><td>請出發前從訂房平台補上，若必填可先使用飯店官方電話</td></tr>
+      <tr><td>Arrival Flight</td><td>BX792</td><td>2026-07-22 抵達</td></tr>
+      <tr><td>Departure Flight</td><td>BX793</td><td>2026-07-28 離境</td></tr>
+      <tr><td>Occupation</td><td>依個人身份填寫</td><td>孩子可填 Student / Child，退休長輩可填 Retired</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="korean">
+  <h2>常用韓文用語｜附羅馬拼音</h2>
+  <table><thead><tr><th>情境</th><th>韓文</th><th>羅馬拼音</th></tr></thead><tbody id="phraseRows"></tbody></table>
+</section>
+
+<section id="shopping">
+  <div class="section-title"><div><h2>購物清單</h2><p>可新增、刪除、打勾。資料會存在目前瀏覽器裡。</p></div></div>
+  <div class="add-row no-print"><input id="shopInput" placeholder="新增想買的東西，例如：Olive Young 面膜" /><button class="btn primary" onclick="addShop()">新增</button></div>
+  <div class="checklist" id="shoppingList"></div>
+</section>
+
+<section id="tax">
+<h2>退稅流程｜金海機場</h2>
+<div class="grid-2">
+<div class="info-card"><h3>前一天晚上</h3>
+<div class="check"><input type="checkbox"><span>退稅單集中一個夾鏈袋</span></div>
+<div class="check"><input type="checkbox"><span>護照與退稅商品放同一區</span></div>
+<div class="check"><input type="checkbox"><span>高單價商品先不要塞進托運箱底部</span></div>
+<div class="check"><input type="checkbox"><span>確認信用卡／現金退稅方式</span></div></div>
+<div class="info-card"><h3>機場流程</h3><ol><li>抵達金海機場後，先不要急著托運。</li><li>到退稅機台／櫃台掃描護照與退稅單。</li><li>若需查驗，帶商品與單據給海關確認。</li><li>完成後再報到、托運、安檢出境。</li><li>依退稅公司指示領現金或等信用卡退稅。</li></ol><p class="note">建議 08:10 前抵達機場，10:50 起飛比較安心。</p></div>
+</div>
+</section>
+
+<section id="emergency">
+<h2>注意事項與緊急資訊</h2>
+<div class="grid-2">
+<div class="info-card"><h3>韓國旅遊小提醒</h3><ul><li>插座：韓國 220V，常見 Type C／F 圓孔插頭。</li><li>交通：Naver Map 比 Google Maps 更適合韓國導航。</li><li>六人移動：多數計程車需分兩台，大件行李日建議接送或包車。</li><li>現金：市場、海鮮、包車尾款建議準備韓幣現金。</li><li>夏天：帽子、防曬、水壺、薄外套、雨具都要帶。</li></ul></div>
+<div class="info-card"><h3>緊急聯絡</h3><p><b>駐韓國台北代表部釜山辦事處</b><br>電話：+82-51-463-7965<br>緊急電話：+82-10-4537-7961</p><p><a target="_blank" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EB%B3%91%EC%9B%90">海雲台附近醫院</a>｜<a target="_blank" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EC%95%BD%EA%B5%AD">海雲台附近藥局</a></p><p><a target="_blank" href="https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EB%B3%91%EC%9B%90">南浦附近醫院</a>｜<a target="_blank" href="https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EC%95%BD%EA%B5%AD">南浦附近藥局</a></p></div>
+</div>
+</section>
+
+<div class="footer">釜山家庭旅行手冊｜made for maomao family with 🌿 by Drippy Forest</div>
+</div>
+
+<script>
+const DEFAULT_DAYS = [{"key": "d0722", "date": "2026-07-22", "title": "7/22（三）抵達釜山｜入住海雲台", "area": "金海機場 → 海雲台", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "16:35", "title": "BX792 起飛", "desc": "桃園出發。登機前確認護照、孩子外套、水壺、行動電源。", "map": "https://map.naver.com/p/search/Taoyuan%20International%20Airport", "tags": ["班機"]}, {"time": "19:55", "title": "抵達金海機場", "desc": "入境、領行李、確認 eSIM/WOWPASS。六人＋行李建議接送或分兩台計程車。", "map": "https://map.naver.com/p/search/%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD", "tags": ["機場", "交通"]}, {"time": "21:30", "title": "入住海雲台 StayWe Airbnb", "desc": "地址：29 Haeundaehaebyeon-ro 298beon-gil A동, Busan 48099。韓文地址：부산광역시 해운대구 해운대해변로298번길 29 A동。房東 Paul From StayWe｜電話 +82 10-4507-0324｜確認碼 HMYMTZ4WNK。第一晚不硬排行程，買水、簡單宵夜、早點休息。", "map": "https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan", "tags": ["住宿", "少走路"]}], "meals": {"早餐": ["台灣出發前正常吃"], "午餐": ["台灣出發前正常吃"], "下午茶": ["機場／飛機上簡單補給"], "晚餐": ["機場或抵達後便利商店宵夜", "海雲台商圈簡單湯飯備案"]}}, {"key": "d0723", "date": "2026-07-23", "title": "7/23（四）ClubD Oasis 水上樂園＋汗蒸幕", "area": "海雲台", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "08:30", "title": "海雲台早餐", "desc": "水上樂園日前先吃飽。新住宿靠 LCT／海灘東側，可選鮑魚粥、海邊咖啡、便利早餐，不必特地走回海雲台站商圈。", "map": "https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EC%A0%84%EB%B3%B5%EC%A3%BD", "tags": ["早餐", "親子"]}, {"time": "09:30", "title": "步行前往 ClubD Oasis", "desc": "泳衣、防水袋、孩子換洗衣物、補水用品帶齊。建議搭計程車。", "map": "https://map.naver.com/p/search/ClubD%20Oasis%20Busan", "tags": ["水上樂園", "計程車"]}, {"time": "10:00–17:30", "title": "ClubD Oasis 水上樂園＋汗蒸幕", "desc": "午餐建議在場內解決。下午留足洗澡和休息時間，不趕場。", "map": "https://map.naver.com/p/search/ClubD%20Oasis%20Busan", "tags": ["一日主行程", "室內休息"]}, {"time": "18:30", "title": "晚餐：豬肉湯飯／血腸湯", "desc": "密陽血腸豬肉湯飯海雲台店或海雲台元祖奶奶湯飯，依排隊狀況選。", "map": "https://map.naver.com/p/search/%EB%B0%80%EC%96%91%EC%88%9C%EB%8C%80%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5%20%ED%95%B4%EC%9A%B4%EB%8C%80%EC%A0%90", "tags": ["釜山美食", "免訂位"]}], "meals": {"早餐": ["大海鮑魚粥 바다마루전복죽｜尾浦／LCT方向", "元祖鮑魚粥 원조전복죽｜海雲台", "住宿附近便利店飯糰＋香蕉牛奶"], "午餐": ["ClubD Oasis 場內餐飲", "若中途離場：LCT 周邊簡餐"], "下午茶": ["ClubD Oasis 場內飲料", "海雲台商圈咖啡店"], "晚餐": ["密陽血腸豬肉湯飯 海雲台店", "海雲台元祖奶奶湯飯", "Haeundae Obok Dwaeji-gukbap"]}}, {"key": "d0724", "date": "2026-07-24", "title": "7/24（五）醫美＋水族館＋鹽麵包＋膠囊列車", "area": "海雲台 → 青沙浦", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "10:30", "title": "maomao＋媽媽：Ollim 奧林提拉醫美", "desc": "醫美後避免曝曬，下午帽子、口罩、溫和保濕。", "map": "https://map.naver.com/p/search/The%20ollim%20clinic%20Busan", "tags": ["分流", "醫美"]}, {"time": "10:30–12:30", "title": "Ken＋爸爸＋孩子：SEA LIFE 釜山水族館", "desc": "從住宿可步行約 8–12 分鐘，室內、親子友善，等媽媽醫美結束會合。", "map": "https://map.naver.com/p/search/SEA%20LIFE%20Busan%20Aquarium", "tags": ["親子", "室內"]}, {"time": "13:15", "title": "午餐：海雲台不辣系餐廳", "desc": "建議選燉排骨、湯飯、鮑魚粥，不要吃太辣以免醫美後不舒服。", "map": "https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EA%B1%B0%EC%86%A1%EA%B0%88%EB%B9%84%EC%B0%9C", "tags": ["午餐", "不辣備案"]}, {"time": "15:00", "title": "自然島鹽麵包出爐", "desc": "14:50–15:10 抵達最剛好。人太多就買少量，不跟排隊硬拚。", "map": "https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9E%90%EC%97%B0%EB%8F%84%ED%95%B4%20%ED%95%B4%EC%9A%B4%EB%8C%80", "tags": ["下午茶", "鹽可頌"]}, {"time": "15:30 / 19:30", "title": "天空膠囊列車＋海岸列車", "desc": "尾浦 → 青沙浦搭天空膠囊；19:30 海岸列車回尾浦。青沙浦只安排咖啡休息。", "map": "https://map.naver.com/p/search/%EB%AF%B8%ED%8F%AC%EC%A0%95%EA%B1%B0%EC%9E%A5", "tags": ["已安排", "海景"]}], "meals": {"早餐": ["大海鮑魚粥 바다마루전복죽｜尾浦方向", "元祖鮑魚粥 원조전복죽", "住宿附近咖啡／便利早餐"], "午餐": ["巨松燉排骨 해운대 거송갈비찜", "鮑魚粥／湯飯類", "水族館附近簡餐"], "下午茶": ["自然島鹽麵包 자연도소금빵", "青沙浦海景咖啡廳", "Rendeja-vous 청사포店備案"], "晚餐": ["海雲台海灘東側簡餐", "海雲台豬肉湯飯", "便利商店＋早休息"]}}, {"key": "d0725", "date": "2026-07-25", "title": "7/25（六）包車日｜影島海女文化村 × 松島", "area": "海雲台 → 影島 → 松島 → 南浦", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "09:30", "title": "海雲台飯店退房，包車出發", "desc": "行李放車上。確認包車尾款現金 461,000 韓幣、司機聯絡方式、南浦飯店地址。", "map": "https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan", "tags": ["包車", "換飯店"]}, {"time": "10:20–11:30", "title": "ARTE MUSEUM Busan", "desc": "室內冷氣、光影沉浸展。若想更教育型，可改國立海洋博物館。", "map": "https://map.naver.com/p/search/%EC%95%84%EB%A5%B4%EB%96%BC%EB%AE%A4%EC%A7%80%EC%97%84%20%EB%B6%80%EC%82%B0", "tags": ["室內", "雨備", "親子"]}, {"time": "11:50–13:00", "title": "影島海女文化村午餐", "desc": "看海女文化、吃海鮮。若太熱，改冷氣餐廳，海女村短停拍照即可。", "map": "https://map.naver.com/p/search/%EC%98%81%EB%8F%84%ED%95%B4%EB%85%80%EC%B4%8C", "tags": ["在地文化", "海鮮"]}, {"time": "13:20–14:30", "title": "白淺灘文化村上方咖啡＋短拍照", "desc": "只走上方、找海景咖啡、上廁所休息。不下切海岸步道。", "map": "https://map.naver.com/p/search/%ED%9D%B0%EC%97%AC%EC%9A%B8%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84", "tags": ["咖啡", "海景", "短停"]}, {"time": "15:00–16:30", "title": "松島海上纜車＋Sky Park／龍宮雲橋擇一", "desc": "孩子會喜歡、長輩也能看海。若太曬，只搭纜車＋咖啡。", "map": "https://map.naver.com/p/search/%EC%86%A1%EB%8F%84%ED%95%B4%EC%83%81%EC%BC%80%EC%9D%B4%EB%B8%94%EC%B9%B4", "tags": ["海景", "親子亮點"]}, {"time": "17:00", "title": "南浦佛瑞特高級飯店 Check-in", "desc": "休息、整理行李、讓孩子充電，大人也充電。", "map": "https://map.naver.com/p/search/Hotel%20Foret%20Premier%20Nampo", "tags": ["住宿", "休息"]}], "meals": {"早餐": ["海雲台住宿附近簡單早餐", "前一天買好麵包／飯糰"], "午餐": ["影島海女村 영도해녀촌", "P.ARK Café & Bakery 輕食備案", "影島冷氣韓食餐廳搜尋"], "下午茶": ["白淺灘海景咖啡", "P.ARK Café & Bakery", "松島纜車站周邊咖啡"], "晚餐": ["南浦烤肉 남포동 고기집", "南浦豬肉湯飯", "味讚王鹽烤富平店備案"]}}, {"key": "d0726", "date": "2026-07-26", "title": "7/26（日）新東亞市場海鮮＋樂天超市", "area": "南浦／札嘎其／光復路", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "08:30", "title": "早餐：南浦鮑魚粥／湯飯", "desc": "濟州家、南浦附近粥店，或豬肉湯飯。長輩小孩都舒服。", "map": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EC%A0%84%EB%B3%B5%EC%A3%BD", "tags": ["早餐"]}, {"time": "10:00", "title": "BIFF 廣場／光復路短散步", "desc": "只走一小段，避開中午太陽。可買黑糖餅或小點。", "map": "https://map.naver.com/p/search/BIFF%EA%B4%91%EC%9E%A5", "tags": ["市區", "小吃"]}, {"time": "11:30", "title": "新東亞市場 85／87 攤海鮮", "desc": "先問總價、料理費、代煮費。海鮮任務請冷靜，不要被帝王蟹用眼神催眠。", "map": "https://map.naver.com/p/search/%EC%8B%A0%EB%8F%99%EC%95%84%EC%88%98%EC%82%B0%EB%AC%BC%EC%A2%85%ED%95%A9%EC%8B%9C%EC%9E%A5", "tags": ["海鮮", "現場詢價"]}, {"time": "15:30", "title": "樂天百貨光復店／樂天超市採買", "desc": "冷氣、廁所、伴手禮、超市一次完成。", "map": "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%B0%B1%ED%99%94%EC%A0%90%20%EA%B4%91%EB%B3%B5%EC%A0%90", "tags": ["購物", "休息"]}, {"time": "18:30", "title": "晚餐：南浦烤肉", "desc": "可選南浦附近烤肉，避免跑西面。若想熱門名店再查 Catchtable。", "map": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EA%B3%A0%EA%B8%B0%EC%A7%91", "tags": ["烤肉"]}], "meals": {"早餐": ["濟州家 제주가 본점｜南浦鮑魚粥", "南浦豬肉湯飯", "飯店附近咖啡輕食"], "午餐": ["新東亞市場 85／87 攤", "札嘎其周邊烤魚／海鮮湯", "若市場太亂：樂天百貨內餐廳"], "下午茶": ["樂天百貨光復店咖啡", "BIFF 廣場黑糖餅", "光復路咖啡店"], "晚餐": ["南浦烤肉搜尋", "味讚王鹽烤富平店", "Nampo Don Galbi 남포돈갈비"]}}, {"key": "d0727", "date": "2026-07-27", "title": "7/27（一）南浦彈性日｜補買＋市場＋休息", "area": "南浦／國際市場／富平市場", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "09:30", "title": "慢慢早餐：湯飯／鮑魚粥／蔘雞湯", "desc": "這天不趕，讓大家睡飽一點。", "map": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5", "tags": ["早餐", "彈性"]}, {"time": "10:30", "title": "國際市場／富平罐頭市場短逛", "desc": "買零食、乾貨、伴手禮。孩子累就回飯店。", "map": "https://map.naver.com/p/search/%EA%B5%AD%EC%A0%9C%EC%8B%9C%EC%9E%A5", "tags": ["市場", "購物"]}, {"time": "13:00", "title": "午餐：南浦在地小吃", "desc": "冷麵、刀削麵、飯捲、湯飯都可以。", "map": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EB%A7%9B%EC%A7%91", "tags": ["午餐"]}, {"time": "15:00", "title": "咖啡休息＋最後採買", "desc": "找有座位與廁所的咖啡廳，整理退稅單與購物清單。", "map": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EC%B9%B4%ED%8E%98", "tags": ["咖啡", "整理"]}, {"time": "21:00", "title": "整理行李與退稅資料", "desc": "退稅單、護照、商品、明早交通全部集中。", "map": "https://map.naver.com/p/search/Hotel%20Foret%20Premier%20Nampo", "tags": ["出境準備"]}], "meals": {"早餐": ["南浦豬肉湯飯", "濟州家 제주가 본점", "南浦蔘雞湯"], "午餐": ["富平市場小吃", "國際市場刀削麵／飯捲", "樂天百貨餐廳備案"], "下午茶": ["南浦咖啡店搜尋", "B&C Bakery", "光復路甜點咖啡"], "晚餐": ["最後一餐烤肉", "豬肉湯飯補吃", "孩子累：外帶回飯店"]}}, {"key": "d0728", "date": "2026-07-28", "title": "7/28（二）金海機場返台", "area": "南浦 → 金海機場", "naverWeather": "https://weather.naver.com/today/08440104", "items": [{"time": "07:20", "title": "從南浦飯店出發前往金海機場", "desc": "六人＋退稅＋行李，建議不要晚於 07:20。", "map": "https://map.naver.com/p/search/Hotel%20Foret%20Premier%20Nampo", "tags": ["機場"]}, {"time": "08:10", "title": "退稅／報到／托運", "desc": "先處理退稅機台或櫃台，再托運需要查驗的商品。", "map": "https://map.naver.com/p/search/%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD", "tags": ["退稅", "護照"]}, {"time": "10:50", "title": "BX793 起飛回台灣", "desc": "釜山小森林任務完成。", "map": "https://map.naver.com/p/search/%EA%B9%80%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD", "tags": ["回家"]}], "meals": {"早餐": ["機場簡單早餐", "前一晚買好的麵包／牛奶"], "午餐": ["飛機上／回台後吃"], "下午茶": ["回家休息"], "晚餐": ["台灣晚餐"]}}];
+
+// v7 migration: clear old itinerary cache so obsolete lodging names cannot appear.
+try {
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith("busanItems_") && !k.startsWith("busanItems_v7_")) localStorage.removeItem(k);
+  });
+} catch(e) {}
+
+const FOOD_OPTIONS = [
+
+    {"name":"Yeyije 韓定食 예이제", "area":"住宿同地址／海雲台東側", "type":"韓定食", "when":"7/22 抵達後若還有體力、7/23 或 7/24 正餐備案", "reserve":"Catchtable 可查／建議訂位", "naver":"https://map.naver.com/p/search/%EC%98%88%EC%9D%B4%EC%A0%9C%20%ED%95%B4%EC%9A%B4%EB%8C%80"},
+    {"name":"LCT 周邊餐廳搜尋", "area":"LCT／ClubD Oasis 周邊", "type":"親子友善餐廳／咖啡", "when":"7/23 ClubD 日午餐或晚餐備案", "reserve":"依店家", "naver":"https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20LCT%20%EB%A7%9B%EC%A7%91"},
+    {"name":"尾浦咖啡／早午餐搜尋", "area":"尾浦／住宿東側", "type":"咖啡／早午餐", "when":"7/24 膠囊列車前後", "reserve":"現場", "naver":"https://map.naver.com/p/search/%EB%AF%B8%ED%8F%AC%20%EC%B9%B4%ED%8E%98"},
+{"name": "密陽血腸豬肉湯飯 海雲台店", "area": "海雲台", "type": "豬肉湯飯／血腸湯", "when": "7/23 晚餐、7/24 備案", "reserve": "現場排隊", "naver": "https://map.naver.com/p/search/%EB%B0%80%EC%96%91%EC%88%9C%EB%8C%80%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5%20%ED%95%B4%EC%9A%B4%EB%8C%80%EC%A0%90"}, {"name": "元祖鮑魚粥 원조전복죽", "area": "海雲台", "type": "鮑魚粥", "when": "7/23 或 7/24 早餐", "reserve": "多為現場", "naver": "https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EC%9B%90%EC%A1%B0%EC%A0%84%EB%B3%B5%EC%A3%BD"}, {"name": "大海鮑魚粥 바다마루전복죽", "area": "海雲台／尾浦", "type": "鮑魚粥", "when": "7/24 早餐、膠囊列車日前", "reserve": "多為現場", "naver": "https://map.naver.com/p/search/%EB%B0%94%EB%8B%A4%EB%A7%88%EB%A3%A8%EC%A0%84%EB%B3%B5%EC%A3%BD"}, {"name": "自然島鹽麵包 자연도소금빵", "area": "海雲台／尾浦", "type": "鹽可頌", "when": "7/24 15:00 下午茶", "reserve": "不用訂位", "naver": "https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9E%90%EC%97%B0%EB%8F%84%ED%95%B4%20%ED%95%B4%EC%9A%B4%EB%8C%80"}, {"name": "巨松燉排骨 해운대 거송갈비찜", "area": "海雲台", "type": "燉排骨／不辣可選", "when": "7/24 午餐", "reserve": "建議現場或電話", "naver": "https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%20%EA%B1%B0%EC%86%A1%EA%B0%88%EB%B9%84%EC%B0%9C"}, {"name": "影島海女村 영도해녀촌", "area": "影島", "type": "海鮮／海女文化", "when": "7/25 午餐", "reserve": "現場為主", "naver": "https://map.naver.com/p/search/%EC%98%81%EB%8F%84%ED%95%B4%EB%85%80%EC%B4%8C"}, {"name": "P.ARK Café & Bakery", "area": "影島", "type": "大型海景咖啡／麵包", "when": "7/25 午餐備案或下午茶", "reserve": "不用訂位", "naver": "https://map.naver.com/p/search/P.ARK%20Cafe%20%26%20Bakery%20Busan"}, {"name": "白淺灘海景咖啡搜尋", "area": "影島白淺灘", "type": "咖啡廳", "when": "7/25 下午茶", "reserve": "現場", "naver": "https://map.naver.com/p/search/%ED%9D%B0%EC%97%AC%EC%9A%B8%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84%20%EC%B9%B4%ED%8E%98"}, {"name": "松島纜車站咖啡搜尋", "area": "松島", "type": "咖啡／休息", "when": "7/25 下午備案", "reserve": "現場", "naver": "https://map.naver.com/p/search/%EC%86%A1%EB%8F%84%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5%20%EC%B9%B4%ED%8E%98"}, {"name": "新東亞市場 85／87 攤", "area": "札嘎其", "type": "海鮮", "when": "7/26 午餐", "reserve": "現場詢價", "naver": "https://map.naver.com/p/search/%EC%8B%A0%EB%8F%99%EC%95%84%EC%88%98%EC%82%B0%EB%AC%BC%EC%A2%85%ED%95%A9%EC%8B%9C%EC%9E%A5"}, {"name": "濟州家 제주가 본점", "area": "南浦", "type": "鮑魚粥／海鮮湯", "when": "7/26 或 7/27 早餐", "reserve": "多為現場", "naver": "https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EA%B0%80%20%EB%B3%B8%EC%A0%90"}, {"name": "南浦烤肉搜尋", "area": "南浦", "type": "烤肉", "when": "7/26 或 7/27 晚餐", "reserve": "熱門店可查 Catchtable", "naver": "https://map.naver.com/p/search/%EB%82%A8%ED%8F%AC%EB%8F%99%20%EA%B3%A0%EA%B8%B0%EC%A7%91"}, {"name": "味讚王鹽烤富平店", "area": "南浦／富平", "type": "烤肉", "when": "7/26 晚餐備案", "reserve": "建議查 Catchtable／現場", "naver": "https://map.naver.com/p/search/%EB%A7%9B%EC%B0%AC%EB%93%A4%EC%99%95%EC%86%8C%EA%B8%88%EA%B5%AC%EC%9D%B4%20%EB%B6%80%ED%8F%89%EC%A0%90"}, {"name": "B&C Bakery", "area": "南浦／光復路", "type": "麵包伴手禮", "when": "7/27 下午茶／伴手禮", "reserve": "不用訂位", "naver": "https://map.naver.com/p/search/B%26C%20Bakery%20Busan"}];
+const PHRASES = [["你好", "안녕하세요", "annyeonghaseyo"], ["謝謝", "감사합니다", "gamsahamnida"], ["不好意思／請問", "저기요", "jeogiyo"], ["請給我這個", "이거 주세요", "igeo juseyo"], ["不要辣", "안 맵게 해주세요", "an maepge haejuseyo"], ["小孩要吃，請不要辣", "아이 먹을 거라 안 맵게 해주세요", "ai meogeul geora an maepge haejuseyo"], ["可以刷卡嗎？", "카드 돼요?", "kadeu dwaeyo?"], ["請問廁所在哪裡？", "화장실 어디예요?", "hwajangsil eodiyeyo?"], ["請幫我叫計程車", "택시 불러 주세요", "taeksi bulleo juseyo"], ["請到這個地址", "이 주소로 가주세요", "i jusoro gajuseyo"], ["請停在這裡", "여기 세워 주세요", "yeogi sewo juseyo"], ["多少錢？", "얼마예요?", "eolmayeyo?"], ["我們有六個人", "저희 여섯 명이에요", "jeohui yeoseot myeong-ieyo"], ["可以打包嗎？", "포장 가능해요?", "pojang ganeunghaeyo?"], ["請問有兒童餐具嗎？", "아이 식기 있어요?", "ai sikgi isseoyo?"]];
+const defaultShop = ["Olive Young 面膜","防曬／曬後保濕","痘痘貼","韓國海苔","泡麵","兒童零食","芝麻油／調味包","B&C Bakery 麵包","釜山魚板","明信片與小紀念品"].map(text=>({text,done:false}));
+
+function storeKey(dayKey){ return "busanItems_v7_"+dayKey; }
+function getItems(day){ return JSON.parse(localStorage.getItem(storeKey(day.key)) || "null") || day.items; }
+function saveItems(dayKey, items){ localStorage.setItem(storeKey(dayKey), JSON.stringify(items)); }
+function renderDays(){
+  const root = document.getElementById("daysRoot");
+  root.innerHTML = "";
+  DEFAULT_DAYS.forEach(day=>{
+    let items = getItems(day);
+  items = items.map(it => {
+    const bad = ["拉"+"梅"+"爾","La"+" Mer","6 "+"Gunam-ro","Gunam"+"-ro 21beon"];
+    const hit = bad.some(b => (it.title||"").includes(b) || (it.desc||"").includes(b));
+    if (day.key === "d0722" && it.time === "21:30" && hit) {
+      return {time:"21:30", title:"入住海雲台 StayWe Airbnb", desc:"地址：29 Haeundaehaebyeon-ro 298beon-gil A동, Busan 48099。韓文地址：부산광역시 해운대구 해운대해변로298번길 29 A동。房東 Paul From StayWe｜電話 +82 10-4507-0324｜確認碼 HMYMTZ4WNK。第一晚不硬排行程，買水、簡單宵夜、早點休息。", map:"https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan", tags:["住宿","少走路"]};
+    }
+    return it;
+  });
+    const card = document.createElement("div");
+    card.className = "day-card";
+    card.innerHTML = `
+      <div class="day-head" onclick="toggleDay(this)"><h3>${day.title}</h3><span>展開／收合</span></div>
+      <div class="day-body">
+        <div class="note"><b>今日區域：</b>${day.area} ｜ <a target="_blank" href="${day.naverWeather}">查看 Naver 天氣</a></div>
+        <div class="meal-grid">${Object.entries(day.meals).map(([meal, arr])=>`<div class="meal-box"><b>${meal}</b><ul>${arr.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+        <div class="day-tools no-print">
+          <button class="btn ghost" onclick="showAdd('${day.key}')">新增行程</button>
+          <button class="btn ghost" onclick="resetDay('${day.key}')">恢復這天預設</button>
+        </div>
+        <div class="add-panel no-print" id="add-${day.key}">
+          <input id="time-${day.key}" placeholder="時間，例如 14:30" />
+          <input id="title-${day.key}" placeholder="行程名稱" />
+          <textarea id="desc-${day.key}" placeholder="備註、餐點、休息點"></textarea>
+          <input id="map-${day.key}" placeholder="Naver 地圖連結，可空白" />
+          <button class="btn primary" onclick="addItem('${day.key}')">加入這天</button>
+        </div>
+        <div class="timeline" id="list-${day.key}"></div>
+      </div>`;
+    root.appendChild(card);
+    renderItems(day.key);
+  });
+}
+function renderItems(dayKey){
+  const day = DEFAULT_DAYS.find(d=>d.key===dayKey);
+  const list = document.getElementById("list-"+dayKey);
+  let items = getItems(day);
+  items = items.map(it => {
+    const bad = ["拉"+"梅"+"爾","La"+" Mer","6 "+"Gunam-ro","Gunam"+"-ro 21beon"];
+    const hit = bad.some(b => (it.title||"").includes(b) || (it.desc||"").includes(b));
+    if (day.key === "d0722" && it.time === "21:30" && hit) {
+      return {time:"21:30", title:"入住海雲台 StayWe Airbnb", desc:"地址：29 Haeundaehaebyeon-ro 298beon-gil A동, Busan 48099。韓文地址：부산광역시 해운대구 해운대해변로298번길 29 A동。房東 Paul From StayWe｜電話 +82 10-4507-0324｜確認碼 HMYMTZ4WNK。第一晚不硬排行程，買水、簡單宵夜、早點休息。", map:"https://map.naver.com/p/search/29%20Haeundaehaebyeon-ro%20298beon-gil%20Busan", tags:["住宿","少走路"]};
+    }
+    return it;
+  });
+  saveItems(dayKey, items);
+  list.innerHTML = items.map((it, idx)=>`
+    <div class="item">
+      <div class="time">${it.time || "彈性"}</div>
+      <div><div class="item-title">${it.title}</div>
+      <p>${it.desc || ""} ${it.map ? `<br><a target="_blank" href="${it.map}">Naver 地圖／搜尋</a>` : ""}</p>
+      <div class="tags">${(it.tags||["自訂"]).map(t=>`<span class="tag">${t}</span>`).join("")}</div></div>
+      <div class="item-actions no-print">
+        <button class="tiny-btn" onclick="done(this)">完成</button>
+        <button class="tiny-btn" onclick="moveItem('${dayKey}', ${idx}, -1)">↑</button>
+        <button class="tiny-btn" onclick="moveItem('${dayKey}', ${idx}, 1)">↓</button>
+        <button class="tiny-btn" onclick="deleteItem('${dayKey}', ${idx})">刪除</button>
+      </div>
+    </div>`).join("");
+}
+function showAdd(dayKey){ const p=document.getElementById("add-"+dayKey); p.style.display = p.style.display==="block"?"none":"block"; }
+function addItem(dayKey){
+  const day = DEFAULT_DAYS.find(d=>d.key===dayKey);
+  const items = getItems(day);
+  const t=document.getElementById("time-"+dayKey).value.trim();
+  const title=document.getElementById("title-"+dayKey).value.trim();
+  if(!title) return;
+  items.push({time:t||"彈性", title, desc:document.getElementById("desc-"+dayKey).value.trim(), map:document.getElementById("map-"+dayKey).value.trim(), tags:["自訂"]});
+  saveItems(dayKey, items); renderItems(dayKey);
+  ["time-","title-","desc-","map-"].forEach(prefix=>document.getElementById(prefix+dayKey).value="");
+}
+function deleteItem(dayKey, idx){ const day=DEFAULT_DAYS.find(d=>d.key===dayKey); const items=getItems(day); items.splice(idx,1); saveItems(dayKey,items); renderItems(dayKey); }
+function moveItem(dayKey, idx, dir){ const day=DEFAULT_DAYS.find(d=>d.key===dayKey); const items=getItems(day); const ni=idx+dir; if(ni<0||ni>=items.length)return; [items[idx],items[ni]]=[items[ni],items[idx]]; saveItems(dayKey,items); renderItems(dayKey); }
+function resetDay(dayKey){ localStorage.removeItem(storeKey(dayKey)); renderItems(dayKey); }
+function resetAll(){ DEFAULT_DAYS.forEach(d=>localStorage.removeItem(storeKey(d.key))); renderDays(); }
+function toggleDay(head){ const body=head.nextElementSibling; body.style.display = body.style.display==="none"?"block":"none"; }
+function done(btn){ btn.closest(".item").classList.toggle("done"); }
+function toggleBig(){ document.body.classList.toggle("big"); }
+
+function renderFood(){
+  const root=document.getElementById("foodList");
+  root.innerHTML=FOOD_OPTIONS.map(f=>`<div class="food-card"><h3>${f.name}</h3><p><b>區域：</b>${f.area}<br><b>類型：</b>${f.type}<br><b>建議安排：</b>${f.when}<br><b>訂位：</b>${f.reserve}</p><p><a target="_blank" href="${f.naver}">Naver 地址／搜尋</a></p></div>`).join("");
+}
+function renderPhrases(){
+  document.getElementById("phraseRows").innerHTML=PHRASES.map(p=>`<tr><td>${p[0]}</td><td class="kr">${p[1]}</td><td class="roman">${p[2]}</td></tr>`).join("");
+}
+
+function getShop(){ return JSON.parse(localStorage.getItem("busanShop_v7") || "null") || defaultShop; }
+function saveShop(data){ localStorage.setItem("busanShop_v7", JSON.stringify(data)); }
+function loadShop(){
+  const box=document.getElementById("shoppingList"); const data=getShop(); box.innerHTML="";
+  data.forEach((it,idx)=>{ const div=document.createElement("div"); div.className="check"; div.innerHTML=`<input type="checkbox" ${it.done?"checked":""} onchange="toggleShop(${idx},this.checked)"><span>${it.text}</span><button class="tiny-btn no-print" onclick="delShop(${idx})">刪除</button>`; box.appendChild(div); });
+}
+function addShop(){ const input=document.getElementById("shopInput"); const val=input.value.trim(); if(!val)return; const data=getShop(); data.push({text:val,done:false}); saveShop(data); input.value=""; loadShop(); }
+function delShop(idx){ const data=getShop(); data.splice(idx,1); saveShop(data); loadShop(); }
+function toggleShop(idx, checked){ const data=getShop(); data[idx].done=checked; saveShop(data); }
+
+function wmo(code){
+  const map={0:"晴",1:"大致晴朗",2:"局部多雲",3:"陰",45:"霧",48:"霧",51:"毛毛雨",53:"毛毛雨",55:"毛毛雨",61:"小雨",63:"雨",65:"大雨",80:"陣雨",81:"陣雨",82:"強陣雨",95:"雷雨"};
+  return map[code] || "天氣變化";
+}
+async function loadWeather(){
+  const root=document.getElementById("weatherGrid");
+  root.innerHTML = DEFAULT_DAYS.map(d=>`<div class="weather-day"><b>${d.title.slice(0,7)}</b><p>讀取中…</p></div>`).join("");
+  try{
+    const url="https://api.open-meteo.com/v1/forecast?latitude=35.1796&longitude=129.0756&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FSeoul&forecast_days=16";
+    const res=await fetch(url); const data=await res.json(); const daily=data.daily;
+    root.innerHTML = DEFAULT_DAYS.map(d=>{
+      const idx = daily.time.indexOf(d.date);
+      if(idx === -1) return `<div class="weather-day"><b>${d.title.slice(0,7)}</b><p>尚未開放預報</p><p><a target="_blank" href="${d.naverWeather}">Naver 天氣</a></p></div>`;
+      return `<div class="weather-day"><b>${d.title.slice(0,7)}</b><div class="weather-temp">${Math.round(daily.temperature_2m_min[idx])}–${Math.round(daily.temperature_2m_max[idx])}°C</div><p>${wmo(daily.weather_code[idx])}<br>降雨機率 ${daily.precipitation_probability_max[idx]}%</p><p><a target="_blank" href="${d.naverWeather}">Naver 天氣</a></p></div>`;
+    }).join("");
+  }catch(e){
+    root.innerHTML = DEFAULT_DAYS.map(d=>`<div class="weather-day"><b>${d.title.slice(0,7)}</b><p>讀取失敗</p><p><a target="_blank" href="${d.naverWeather}">Naver 天氣</a></p></div>`).join("");
+  }
+}
+
+renderDays(); renderFood(); renderPhrases(); loadShop(); loadWeather();
+</script>
+</body>
+</html>
